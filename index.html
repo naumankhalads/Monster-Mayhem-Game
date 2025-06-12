@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monster Mayhem</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="homeScreen" class="screen visible">
+  <h1>MONSTER MAYHEM</h1>
+  <div class="hex-menu">
+    <div class="hex-btn-wrapper">
+      <div class="hex-btn" onclick="showPlayerForm()">
+        <span>PLAY</span>
+      </div>
+    </div>
+    <div class="hex-btn-wrapper">
+      <div class="hex-btn" onclick="showInstructions()">
+        <span>HELP</span>
+      </div>
+    </div>
+    <div class="hex-btn-wrapper">
+      <div class="hex-btn" onclick="alert('Sound effects enabled')">
+        <span>SOUND</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="playerNameForm" class="screen">
+  <h2>ENTER YOUR NAME</h2>
+  <input type="text" id="playerNameInput" placeholder="Monster name" />
+  <button onclick="startGame()">START GAME</button>
+</div>
+
+<div id="instructionsModal">
+  <h2>HOW TO PLAY</h2>
+  <ul style="text-align: left;">
+    <li>Click your monster to see possible moves (highlighted in green)</li>
+    <li>Movement direction changes randomly each turn</li>
+    <li>Can move 3 tiles in current direction</li>
+    <li>Landing on a trap costs 1 life</li>
+    <li>Reach the glowing portal to level up</li>
+    <li>Watch the timer - running out costs a life!</li>
+    <li>Beware! Some green tiles hide dangerous traps!</li>
+  </ul>
+  <button onclick="document.getElementById('instructionsModal').style.display='none'">CLOSE</button>
+</div>
+
+<div id="gameOverScreen">
+  <h2>GAME OVER!</h2>
+  <p id="finalScore">Score: 0</p>
+  <button onclick="resetGame()">PLAY AGAIN</button>
+</div>
+
+<div id="gamePage" class="game-page screen">
+  <div id="gameUI">
+    <div id="playerInfo">Player: </div>
+    <div id="levelInfo">Level: 1</div>
+    <div id="pointBoard">Points: 0</div>
+    <div id="livesDisplay"></div>
+    <div id="timerDisplay">Time Left: 30s</div>
+    <div id="moveTypeDisplay">Movement: </div>
+    <div id="dangerWarning">All green tiles are clickable - some hide deadly traps!</div>
+  </div>
+  <div class="game-container">
+    <canvas id="gameCanvas" width="900" height="780"></canvas>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
